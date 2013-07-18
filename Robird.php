@@ -119,15 +119,16 @@ class Robird
 	 */
 	public function sendText($fromUsername,$toUsername,$msgType,$content)
 	{
-		$textTpl = "<xml>
+        //$createTime = time();
+		$resultStr = "<xml>
 					<ToUserName><![CDATA[%s]]></ToUserName>
 					<FromUserName><![CDATA[%s]]></FromUserName>
 					<CreateTime>%s</CreateTime>
 					<MsgType><![CDATA[%s]]></MsgType>
-					<Content><![CDATA[%s]]></Content>
+					<Content><![CDATA[".$content."]]></Content>
 					<FuncFlag>0</FuncFlag>
 					</xml>";  
-		$resultStr = sprintf($textTpl, $fromUsername, $toUsername, time(), $msgType, $content);
+		$resultStr = sprintf($resultStr, $fromUsername, $toUsername, time(), $msgType);
 		echo $resultStr;
 	}
 
