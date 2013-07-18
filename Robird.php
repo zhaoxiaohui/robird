@@ -1,10 +1,8 @@
 <?php
-
 define("TOKEN", "firebird");
-define("ACCOUNT", "downtownguy.hui@gmail.com");
+define("ACCOUNT", "downtownguy.hui@gmain.com");
 define("PASSWORD", "710.MENGxiangHUI");
 define("METHOD", "file");
-define("DOMAIN","data");
 
 class Robird
 {
@@ -28,7 +26,7 @@ class Robird
 			$signature = $_GET["signature"];
 			$timestamp = $_GET["timestamp"];
 			$nonce = $_GET["nonce"];	
-			$echostr = $_GET["echostr"];
+
 			$token = TOKEN;
 			$tmpArr = array($token, $timestamp, $nonce);
 			sort($tmpArr);
@@ -177,7 +175,7 @@ class Robird
 	}
 
 	public function redisCookie(){
-		/*$redis = new Redis();
+		$redis = new Redis();
 		$redis->pconnect('127.0.0.1', 6379);
 		if ($redis->exists('cookie')) {
 			return $redis->get('cookie');
@@ -185,7 +183,7 @@ class Robird
 			$cookie = $this->login();
 			$redis->setex('cookie', 600, $cookie);
 			return $cookie;
-		}*/
+		}
 	}
 
 
@@ -196,8 +194,9 @@ class Robird
 	 * @return [type]           [description]
 	 */
 	public function write($filename,$content){
-		$s = new SaeStorage();
-		$s->write(DOMAIN, $filename, $content);
+		$fp= fopen("./data/".$filename,"w");
+		fwrite($fp,$content);
+		fclose($fp);
 	}
 
 	/**
@@ -206,9 +205,13 @@ class Robird
 	 * @return [type]           [description]
 	 */
 	public function read($filename){
-		$s = new SaeStorage();
-		if($s->fileExists(DOMAIN, $filename)){
-			$data = $s->read(DOMAIN, $filename);
+		if(file_exists("./data/".$filename)){
+			$data = '';
+			$handle=fopen("./data/".$filename,'r');
+			while (!feof($handle)){
+				$data.=fgets($handle);
+			}
+			fclose($handle);
 			if($data){
 				$send_snoopy = new Snoopy; 
 				$send_snoopy->rawheaders['Cookie']= $data;
@@ -246,6 +249,5 @@ class Robird
 			return false;
 		}
 	}
-}
 
-?>
+}
