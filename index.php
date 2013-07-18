@@ -20,6 +20,7 @@ if($rbird->checkSignature()){
 	else $reply = "小火鸟";
 	$rbird->sendText($recieve['FromUserName'],$recieve['ToUserName'],"text",$reply);*/
 	$content = $recieve['Content'];
+	$rbird->sendText($recieve['FromUserName'], $recieve['ToUserName'], 'text', $content);
 	if($content == ZHHELP || $content == ENHELP){
 		$reply = '1.输入数字可以切换频道';
 		$rbird->sendText($recieve['FromUserName'], $recieve['ToUserName'], 'text', $reply);
