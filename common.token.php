@@ -5,6 +5,6 @@
  * @author firebird
  * @description 全局token设置
  */
- define('ZHHELP', '帮助');
- define('ENHELP', 'help');
+ define("ZHHELP", "帮助");
+ define("ENHELP", "help");
 ?>
