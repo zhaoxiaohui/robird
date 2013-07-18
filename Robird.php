@@ -2,7 +2,7 @@
 define("TOKEN", "firebird");
 define("ACCOUNT", "downtownguy.hui@gmain.com");
 define("PASSWORD", "710.MENGxiangHUI");
-define("METHOD", "file");
+define("METHOD", "redis");
 
 class Robird
 {
