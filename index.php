@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', '1');
+error_reporting(E_ALL);
+
 include "Snoopy.class.php";
 include "Robird.php";
 include "common.token.php";
