@@ -1,4 +1,4 @@
-<?php
+i<?php
 /*=======================================*\
  * @author zh
  * Redis相关操作
@@ -7,19 +7,28 @@
 class RedisOp {
 
 	/* private vars */
-	var $_redis;
-	
-    function RedisOp() {
-    	$_redis = new Redis();
-    	$_redis->connect('127.0.0.1');
+	private static $redis = null;
+	private static $redisOp = null;
+    public function __construct() {
+    	self::$redis = new Redis();
+    	self::$redis->connect('127.0.0.1');
     }
     
-    function changeRoom($username, $roomid){
-    	$cur_roomid = $_redis->get("username:$username:roomid");
+    static function getInstance(){
+        if(is_null(self::$redisOp))
+            self::$redisOp = new self();
+        return self::$redisOp;
+    }
+    public function changeRoom($username, $roomid){
+    	
+        //self::$redis = new Redis();
+        //self::$redis->connect('127.0.0.1');
+        
+        $cur_roomid = self::$redis->get("username:$username:roomid");
     	if(!$cur_roomid || $cur_roomid != $roomid){
-    		if($cur_roomid)$_redis->sRem("roomid:$cur_roomid:following", $username);
-    		$_redis->set("username:$username:roomid", $roomid);
-    		$_redis->sAdd("roomid:$roomid:following", $username);
+    		if($cur_roomid)self::$redis->sRem("roomid:$cur_roomid:following", $username);
+    		self::$redis->set("username:$username:roomid", $roomid);
+    		self::$redis->sAdd("roomid:$roomid:following", $username);
     	}
     }
 }
