@@ -112,7 +112,7 @@ class Robird
 	/**
 	 * 被动发送链接
 	 */
-	public function sendUrl($fromUsername, $toUsername, $msgType, $tile, $description, $url){
+	public function sendUrl($fromUsername, $toUsername, $msgType, $title, $description, $url){
 
 		$resultStr = "<xml>
 					<ToUserName><![CDATA[%s]]></ToUserName>
