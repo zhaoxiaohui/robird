@@ -195,9 +195,11 @@ class Robird
 	 * @return [type]           [description]
 	 */
 	public function write($filename,$content){
+		/**
 		$fp= fopen("./data/".$filename,"w");
 		fwrite($fp,$content);
 		fclose($fp);
+		*/
 	}
 
 	/**
@@ -206,6 +208,7 @@ class Robird
 	 * @return [type]           [description]
 	 */
 	public function read($filename){
+		/**
 		if(file_exists("./data/".$filename)){
 			$data = '';
 			$handle=fopen("./data/".$filename,'r');
@@ -230,6 +233,7 @@ class Robird
 		}else{
 			return $this->login();
 		}
+		*/
 	}
 
 	/**
