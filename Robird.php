@@ -113,18 +113,19 @@ class Robird
 	 * 被动发送链接
 	 */
 	public function sendUrl($fromUsername, $toUsername, $msgType, $tile, $description, $url){
-		$createTime = time();
+
 		$resultStr = "<xml>
-					<ToUserName><![CDATA[$toUsername]]></ToUserName>
-					<FromUserName><![CDATA[$fromUsername]]></FromUserName>
-					<CreateTime>$createTime</CreateTime>
-					<MsgType><![CDATA[$msgType]]></MsgType>
-					<Title><![CDATA[$tile]]></Title>
-					<Description><![CDATA[$description]]></Description>
-					<Url><![CDATA[$url]]></Url>
+					<ToUserName><![CDATA[%s]]></ToUserName>
+					<FromUserName><![CDATA[%s]]></FromUserName>
+					<CreateTime>%s</CreateTime>
+					<MsgType><![CDATA[%s]]></MsgType>
+					<Title><![CDATA[%s]]></Title>
+					<Description><![CDATA[%s]]></Description>
+					<Url><![CDATA[%s]]></Url>
 					<MsgId>0</MsgId>
 					</xml>";
-		echo $resultStr;
+		$resultStr = sprintf($resultStr, $fromUsername, $toUsername, time(), $msgType, $title, $description, $url);    
+        echo $resultStr;
 	}
 	/**
 	 * 被动发送内容
