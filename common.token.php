@@ -27,9 +27,9 @@
  /*====================================*\
   * 错误
  \*====================================*/
- define('ERROR_STRING_LONG',55);  //string too long
- define('ERROR_NO_AUTH',56);      //无权限
- define('ERROR_ROOM_EXCEED');       //房间数超出
+ define('ERROR_STRING_LONG', 55);  //string too long
+ define('ERROR_NO_AUTH', 56);      //无权限
+ define('ERROR_ROOM_EXCEED', 57);       //房间数超出
  /*=====================================*\
   * 信息返回值
   * 类似枚举
