@@ -12,7 +12,7 @@
   * 页面链接
  \*=============================*/
  define('CREATE_ROOM', 'createRoom.php');
- define('SIGN_UP', 'signUp.php');
+ define('SIGN_UP', 'http://219.142.86.69/robird/signUp.php');
  define('ADD_CASH', 'addCash.php');
  define('CHECK_ROOMS', 'checkRooms.php');
  

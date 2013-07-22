@@ -112,19 +112,19 @@ class Robird
 	/**
 	 * 被动发送链接
 	 */
-	public function sendUrl($fromUsername, $toUsername, $msgType, $title, $description, $url){
-
+	public function sendUrl($fromUsername, $toUsername, $msgType, $til, $des, $u){
+        $createTime = time();
 		$resultStr = "<xml>
-					<ToUserName><![CDATA[%s]]></ToUserName>
-					<FromUserName><![CDATA[%s]]></FromUserName>
-					<CreateTime>%s</CreateTime>
-					<MsgType><![CDATA[%s]]></MsgType>
-					<Title><![CDATA[%s]]></Title>
-					<Description><![CDATA[%s]]></Description>
-					<Url><![CDATA[%s]]></Url>
-					<MsgId>0</MsgId>
+					<ToUserName><![CDATA[$fromUsername]]></ToUserName>
+					<FromUserName><![CDATA[$toUsername]]></FromUserName>
+					<CreateTime>$createTime</CreateTime>
+					<MsgType><![CDATA[$msgType]]></MsgType>
+					<Title><![CDATA[$til]]></Title>
+					<Description><![CDATA[$des]]></Description>
+					<Url><![CDATA[http://www.baidu.com]]></Url>
+					<FuncFlag>0</FuncFlag>
 					</xml>";
-		$resultStr = sprintf($resultStr, $fromUsername, $toUsername, time(), $msgType, $title, $description, $url);    
+		//$resultStr = sprintf($resultStr, time());    
         echo $resultStr;
 	}
 	/**
@@ -137,16 +137,16 @@ class Robird
 	 */
 	public function sendText($fromUsername,$toUsername,$msgType,$content)
 	{
-        //$createTime = time();
+        $createTime = time();
 		$resultStr = "<xml>
-					<ToUserName><![CDATA[%s]]></ToUserName>
-					<FromUserName><![CDATA[%s]]></FromUserName>
-					<CreateTime>%s</CreateTime>
-					<MsgType><![CDATA[%s]]></MsgType>
-					<Content><![CDATA[".$content."]]></Content>
+					<ToUserName><![CDATA[$fromUsername]]></ToUserName>
+					<FromUserName><![CDATA[$toUsername]]></FromUserName>
+					<CreateTime>$createTime</CreateTime>
+					<MsgType><![CDATA[$msgType]]></MsgType>
+					<Content><![CDATA[$content]]></Content>
 					<FuncFlag>0</FuncFlag>
 					</xml>";  
-		$resultStr = sprintf($resultStr, $fromUsername, $toUsername, time(), $msgType);
+		//$resultStr = sprintf($resultStr, time());
 		echo $resultStr;
 	}
 

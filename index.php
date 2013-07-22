@@ -33,8 +33,8 @@ if($rbird->checkSignature()){
 		    	$createRsult = $redisOp->createRoom($recieve['FromUserName']);
 		    	switch($createRsult){
 		    		case ERROR_NO_AUTH:
-		    			$rbird->sendUrl($recieve['FromUserName'], $recieve['ToUserName'], 'link', '创建房间', '创建房间', SIGN_UP);
-		    			//$rbird->sendText($recieve['FromUserName'], $recieve['ToUserName'], 'text', '没有注册，无法创建房间。请先注册。');
+		    			//$rbird->sendUrl($recieve['FromUserName'], $recieve['ToUserName'], 'link', '创建房间', '创建房间', SIGN_UP);
+		    			$rbird->sendText($recieve['FromUserName'], $recieve['ToUserName'], 'text', '<a href="'.SIGN_UP.'">没有注册，无法创建房间，请先创建房间</a>');
 		    			break;
 		    		case ERROR_ROOM_EXCEED:
 		    			$rbird->sendText($recieve['FromUserName'], $recieve['ToUserName'], 'text', '房间已满，请删除不需要的房间');
