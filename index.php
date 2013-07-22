@@ -7,37 +7,39 @@ header("Content-Type:text/html;Charset=utf-8");
 include "Snoopy.class.php";
 include "Robird.php";
 include "common.token.php";
-
-define("HELP","帮助");
+include "Parse.class.php";
+include "RedisOp.class.php";
 
 $rbird = new Robird();
+$parse = new Parse();
+$redis = new RedisOp();
 
-
-//echo "hello";
-function zhencode($str){//对中文进行编码的函数
-    $str=base64_encode($str);
-    $str= "=?"."UTF-8?B?".$str."?=";
-    return $str;
-}
 if($rbird->checkSignature()){
 	$recieve = $rbird->parseData();
 	
-	
-	/*$simi = new Simi();
-	
-	$reply = $simi->request($recieve['Content']);
-	if($reply['result'] == 100 )
-		$reply = $reply['response'];
-	else $reply = "小火鸟";
-	$rbird->sendText($recieve['FromUserName'],$recieve['ToUserName'],"text",$reply);*/
-	$content = $recieve['Content'];
-    //$content = $_GET['m'];
-	//$rbird->sendText($recieve['FromUserName'], $recieve['ToUserName'], 'text', $content);
-	if($content == '帮助' || $content == 'help'){
+	//获得命令
+   	$parseResult = json_decode(parse.parseContent($recieve['Content']));
+	switch($parseResult.type){
+		//改变房间
+		case CHRM:
+			$redis.changeRoom($recieve['FromUserName'], $parseResult.con);
+			$rbird->sendText($recieve['FromUserName'], $recieve['ToUserName'], 'text', '更新房间成功 现在房间号'.$parseResult.con);
+			break;
+		//创建房间
+		case CRRM:
+			break;
+		//查看房间
+		case CKRM:
+			break;
+		//发送消息
+		case SDM:
+			break;
+	}
+	/*if($content == '帮助' || $content == 'help'){
 		$reply = '你好';
         //$reply = urldecode($reply);
 		$rbird->sendText($recieve['FromUserName'], $recieve['ToUserName'], 'text', $reply);
 	    //echo $reply;
-    }
+    }*/
 }
 ?>
