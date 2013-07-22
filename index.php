@@ -34,6 +34,9 @@ if($rbird->checkSignature()){
 		    //查看房间
 		    case CKRM:
 		    	break;
+		    //查看所有房间
+		    case CKRMA:
+		    	break;
 		    //发送消息
 		    case SDM:
 		    	break;
