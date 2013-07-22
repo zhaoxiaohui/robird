@@ -19,9 +19,8 @@ class Simsimi {
 	}
 
 	/**
-	 * 把cookie写入缓存
-	 * @param  string $filename 缓存文件名
-	 * @param  string $content  文件内容
+	 * 鎶奵ookie鍐欏叆缂撳瓨
+	 * @param  string $filename 缂撳瓨鏂囦欢鍚�	 * @param  string $content  鏂囦欢鍐呭
 	 * @return bool
 	 */
 	public function saveCookie($filename,$content){
@@ -30,9 +29,8 @@ class Simsimi {
 	}
 
 	/**
-	 * 读取cookie缓存内容
-	 * @param  string $filename 缓存文件名
-	 * @return string cookie
+	 * 璇诲彇cookie缂撳瓨鍐呭
+	 * @param  string $filename 缂撳瓨鏂囦欢鍚�	 * @return string cookie
 	 */
 	public function getCookie($filename){
 		$s = new SaeStorage();
@@ -56,7 +54,7 @@ class Simsimi {
 	public function init($lang='ch'){
 		if ($this->cookie) return true;
 		$url = "http://www.simsimi.com/talk.htm?lc=".$lang;     
-	    //这个curl是因为官方每次请求都有唯一的COOKIE，我们必须先把COOKIE拿出来，不然会一直返回“HI”     
+	    //杩欎釜curl鏄洜涓哄畼鏂规瘡娆¤姹傞兘鏈夊敮涓�殑COOKIE锛屾垜浠繀椤诲厛鎶奀OOKIE鎷垮嚭鏉ワ紝涓嶇劧浼氫竴鐩磋繑鍥炩�HI鈥�    
 	    $ch = curl_init();     
 	    curl_setopt($ch, CURLOPT_URL, $url);
 	    if ($this->_proxy) {
@@ -83,7 +81,7 @@ class Simsimi {
 			if (!$this->cookie) {
 				$re = $this->init();
 				if (!$re)
-			    		return '先睡个懒觉';
+			    		return '鍏堢潯涓噿瑙�;
 			}
 			$snooy = new Snoopy();
 			

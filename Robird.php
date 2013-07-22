@@ -108,7 +108,24 @@ class Robird
 		}
 		return $result;
 	}
-
+	
+	/**
+	 * 被动发送链接
+	 */
+	public function sendUrl($fromUsername, $toUsername, $msgType, $tile, $description, $url){
+		$createTime = time();
+		$resultStr = "<xml>
+					<ToUserName><![CDATA[$toUsername]]></ToUserName>
+					<FromUserName><![CDATA[$fromUsername]]></FromUserName>
+					<CreateTime>$createTime</CreateTime>
+					<MsgType><![CDATA[$msgType]]></MsgType>
+					<Title><![CDATA[$tile]]></Title>
+					<Description><![CDATA[$description]]></Description>
+					<Url><![CDATA[$url]]></Url>
+					<MsgId>0</MsgId>
+					</xml>";
+		echo $resultStr;
+	}
 	/**
 	 * 被动发送内容
 	 * @param  [type] $fromUsername [description]

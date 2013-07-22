@@ -47,7 +47,7 @@ class RedisOp {
      * 创建房间，每个人限制创建房间为5个
     \*=======================================*/
 
-    public function createRoom($username, $roomid){
+    public function createRoom($username){
         //首先检查是否已经注册 注册俩表regist:username
         if(!self::$redis->sIsMember("regist:username", $username)){
             return ERROR_NO_AUTH;    

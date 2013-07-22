@@ -6,7 +6,7 @@
 \*=========================================*/
 class DB {
 
-    private static __instance = null;
+    private static $__instance = null;
 
     private function __construct(){
     }
