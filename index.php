@@ -55,13 +55,14 @@ if($rbird->checkSignature()){
 			    	break;
 			    //点歌服务
 			    case SEARCH_MUSIC:
-			    	$getContent = new GetContent();
-			    	$musicinfo = json_decode($getContent->getContent( $parseResult->con), true);
-			    	if($musicinfo['music']['hqmusicurl'] == ""){
-			    		$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
-			    	}else{
-			    		$rbird->sendMusic($musicinfo['music']);
-			    	}
+			    $rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
+			    	//$getContent = new GetContent();
+			    	//$musicinfo = json_decode($getContent->getContent( $parseResult->con), true);
+			    	//if($musicinfo['music']['hqmusicurl'] == ""){
+			    	//	$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
+			    	//}else{
+			    	//	$rbird->sendMusic($musicinfo['music']);
+			    	//}
 			    	break;
 		    }
 	    }catch(Exception $e){
