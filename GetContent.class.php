@@ -30,7 +30,7 @@ class GetContent{
 		$post['reqtype'] = self::REQ_TYPE;
 		$post['keyword'] = urlencode($music);
 		$submit = MUSIC_URL;
-		$send_snoopy->submit($submit,$post);
+		$send_snoopy->submittext($submit,$post);
 		return $send_snoopy->results;
 		/*$apihost = "http://api2.sinaapp.com/";
 	    $apimethod = "search/music/?";
