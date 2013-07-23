@@ -23,18 +23,18 @@ class GetContent{
 		}
 	 */
 	public function getMusic($music){
-		/*$send_snoopy = new Snoopy(); 
-		$apiparams = array('appkey'=>APP_KEY, 'appsecert'=>APP_SECERT, 'reqtype'=>REQ_TYPE);
+		$send_snoopy = new Snoopy; 
+		$apiparams = array('appkey'=>self::APP_KEY, 'appsecert'=>self::APP_SECERT, 'reqtype'=>self::REQ_TYPE);
 		$apikeyword = "&keyword=".urlencode($music);
-		$submit = MUSIC_URL.http_build_query($apiparams).$apikeyword;
+		$submit = self::MUSIC_URL.http_build_query($apiparams).$apikeyword;
 		$send_snoopy->submit($submit);
-		return $send_snoopy->results;*/
-		$apihost = self::MUSIC_URL;
+		return $send_snoopy->results;
+		/*$apihost = self::MUSIC_URL;
 	    //$apimethod = "search/music/?";
 	    $apiparams = array('appkey'=>self::APP_KEY, 'appsecert'=>self::APP_SECERT, 'reqtype'=>self::REQ_TYPE);
 	    $apikeyword = "&keyword=".urlencode($music);
 	    $apicallurl = $apihost.http_build_query($apiparams).$apikeyword;
-	    return file_get_contents($apicallurl);
+	    return file_get_contents($apicallurl);*/
 	}
 }
 ?>
