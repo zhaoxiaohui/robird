@@ -52,6 +52,7 @@ if($rbird->checkSignature()){
 			    	break;
 			    //发送消息
 			    case SDM:
+			    	$rbird->sendText($parseResult->con);
 			    	break;
 			    //点歌服务
 			    case SEARCH_MUSIC:
