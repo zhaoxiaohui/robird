@@ -9,7 +9,7 @@ include "Robird.php";
 include "common.token.php";
 include "Parse.class.php";
 include "RedisOp.class.php";
-
+include "GetContent.class.php";
 
 
 $rbird = new Robird();
@@ -52,6 +52,16 @@ if($rbird->checkSignature()){
 			    	break;
 			    //发送消息
 			    case SDM:
+			    	break;
+			    //点歌服务
+			    case SEARCH_MUSIC:
+			    	$getContent = new GetContent();
+			    	$musicinfo = json_decode($getContent->getContent( $parseResult->con), true);
+			    	if($musicinfo['music']['hqmusicurl'] == ""){
+			    		$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
+			    	}else{
+			    		$rbird->sendMusic($musicinfo['music']);
+			    	}
 			    	break;
 		    }
 	    }catch(Exception $e){

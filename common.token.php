@@ -44,5 +44,7 @@
  define('CKRM',13);   //check room
  define('CKRMA',14);  //check all room
  define('SDM',15);   //standard message
+ 
+ define('SEARCH_MUSIC', 16); //点歌
 
 ?>

@@ -273,6 +273,26 @@ class Robird
         $this->postStr['FuncFlag'] = $funcFlag;
     }
     /**
+	 * 设置回复音乐
+	 * @param array $musicinfo
+	 */
+	public function sendMusic($musicinfo) {
+		$msg = array(
+			'ToUserName' => $this->getFromUserName(),
+			'FromUserName'=>$this->getToUserName(),
+			'CreateTime'=>time(),
+			'MsgType'=>'music',
+			'Music'=>array(
+				'Title'=>$musicinfo['title'],
+				'Description'=>$musicinfo['description'],
+				'MusicUrl'=>$musicinfo['musicurl'],
+				'HQMusicUrl'=>$musicinfo['hqmusicurl']
+			),
+			'FuncFlag'=>0
+		);
+		$this->reply($msg);
+	}
+    /**
     * 设置回复图文
     * @param array $newsData 
     * 数组结构:

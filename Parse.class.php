@@ -28,6 +28,8 @@ class Parse {
     		return json_encode(array("type"=>CKRM, "con"=>substr($content,2)));
     	}else if(preg_match("/^(c|C)+(k|K)+$/", $content)){  //check all room
     		return json_encode(array("type"=>CKRMA));
+    	}else if(substr($content, 0, 6) == '点歌'){
+    		return json_encode(array('type='>SEARCH_MUSIC, 'con'=>trim(substr($content, 6, strlen($content)))));
     	}else return json_encode(array("type"=>SDM, "con"=>$content));
     }
     
