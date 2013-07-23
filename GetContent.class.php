@@ -5,7 +5,7 @@
  * 获取网络内容
  */
 class GetContent{
-	const MUSIC_URL = "http://api2.sinaapp.com/search/music/?";
+	const MUSIC_URL = 'http://api2.sinaapp.com/search/music/?';
 	const APP_KEY = '0020120430';
 	const APP_SECERT = 'fa6095e113cd28fd';
 	const REQ_TYPE = 'music';
@@ -29,7 +29,7 @@ class GetContent{
 		$submit = MUSIC_URL.http_build_query($apiparams).$apikeyword;
 		$send_snoopy->submit($submit);
 		return $send_snoopy->results;*/
-		$apihost = MUSIC_URL;
+		$apihost = "http://api2.sinaapp.com/search/music/?";
 	    //$apimethod = "search/music/?";
 	    $apiparams = array('appkey'=>"0020120430", 'appsecert'=>"fa6095e113cd28fd", 'reqtype'=>"music");
 	    $apikeyword = "&keyword=".urlencode($music);
