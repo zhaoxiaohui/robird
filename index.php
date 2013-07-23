@@ -23,13 +23,13 @@ if($rbird->checkSignature()){
     //$pic = $rbird->postStr['PicUrl'];
     
     $news = array(
-        'one'=>array(
+        array(
             'Title'=>'哈哈',
             'Description'=>'你好',
             'PicUrl'=>'http://219.142.86.69/robird/rong.JPG',
             'Url'=>'http://219.142.86.69/robird/signUp.php'
         ),
-        'two'=>array(
+        array(
             'Title'=>'哈哈',
             'Description'=>'你好',
             'PicUrl'=>'http://219.142.86.69/robird/rong.JPG',
