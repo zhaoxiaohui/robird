@@ -22,7 +22,7 @@ if($rbird->checkSignature()){
    	$parseResult = json_decode($parse->parseContent($rbird->postStr['Content']));
     //$pic = $rbird->postStr['PicUrl'];
     
-    $news = array(
+    /*$news = array(
         array(
             'Title'=>'哈哈',
             'Description'=>'你好',
@@ -35,15 +35,14 @@ if($rbird->checkSignature()){
             'PicUrl'=>'http://219.142.86.69/robird/rong.JPG',
             'Url'=>'http://219.142.86.69/robird/signUp.php'
         )
-    );
-    $rbird->sendNews($news);
-    /*
+    );*/
+    //$rbird->sendNews($news);
     try{
         switch($parseResult->type){
 		    //改变房间
 		    case CHRM:
 			    $redisOp->changeRoom($rbird->postStr['FromUserName'], $parseResult->con);
-			    $rbird->sendText($rbird->postStr['FromUserName'], $rbird->postStr['ToUserName'], 'text', '更新房间成功 现在房间号'.$parseResult->con);
+			    $rbird->sendText('更新房间成功 现在房间号'.$parseResult->con);
 		    	break;
 		    //创建房间
 		    case CRRM:
@@ -51,13 +50,13 @@ if($rbird->checkSignature()){
 		    	switch($createRsult){
 		    		case ERROR_NO_AUTH:
 		    			//$rbird->sendUrl($recieve['FromUserName'], $recieve['ToUserName'], 'link', '创建房间', '创建房间', SIGN_UP);
-		    			$rbird->sendText($rbird->postStr['FromUserName'], $rbird->postStr['ToUserName'], 'text', '<a href="'.SIGN_UP.'">没有注册，无法创建房间，请先创建房间</a>');
+		    			$rbird->sendText('<a href="'.SIGN_UP.'">没有注册，无法创建房间，请先创建房间</a>');
 		    			break;
 		    		case ERROR_ROOM_EXCEED:
-		    			$rbird->sendText($rbird->postStr['FromUserName'], $rbird->postStr['ToUserName'], 'text', '房间已满，请删除不需要的房间');
+		    			$rbird->sendText('房间已满，请删除不需要的房间');
 		    			break;
 		    		case OP_OK:
-		    			$rbird->sendText($rbird->postStr['FromUserName'], $rbird->postStr['ToUserName'], 'text', '创建房间');
+		    			$rbird->sendText('创建房间');
 		    			break;	
 		    	}
 		    	break;
@@ -74,7 +73,6 @@ if($rbird->checkSignature()){
     }catch(Exception $e){
         $rbird->sendText($recieve['FromUserName'], $recieve['ToUserName'], 'text', $e->getMessage());
     }
-    */
 	/*if($content == '帮助' || $content == 'help'){
 		$reply = '你好';
         //$reply = urldecode($reply);

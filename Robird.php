@@ -6,7 +6,7 @@ define("METHOD", "redis");
 
 class Robird
 {
-    public $postStr = array();
+    private $postStr = array();
 	// 构造函数
 	public function __construct(){
 		// 读取cookie
@@ -165,14 +165,26 @@ class Robird
     public function setFromUsername($fromUsername){
         $this->postStr['FromUserName'] = $fromUsername;
     }
+    public function getFromUsername(){
+    	return $this->postStr['FromUserName'];
+    }
     public function setToUsername($toUsername){
         $this->postStr['ToUserName'] = $toUsername;    
+    }
+    public function getToUsername(){
+    	return $this->postStr['ToUserName'];
     }
     public function setCreateTime(){
         $this->postStr['CreateTime'] = time();
     }
+    public function getCreateTime(){
+    	return $this->postStr['CreateTime'];
+    }
     public function setMsgType($msgType){
         $this->postStr['MsgType'] = $msgType;
+    }
+    public function getMsgType(){
+    	return $this->postStr['MsgType'];
     }
     public function setFuncFlag($funcFlag = 0){
         $this->postStr['FuncFlag'] = $funcFlag;
@@ -207,16 +219,6 @@ class Robird
         );
         $this->reply($msg);
     }
-    /**
-     * 返回原文消息
-     */
-    public function sendOrigin($fromUsername, $toUsername){
-        $this->setToUserName($fromUsername);
-        $this->setFromUserName($toUsername);
-        $this->setCreateTime();
-        $this->setFuncFlag();
-        $this->reply($this->postStr);
-    }
 	/**
 	 * 被动发送内容
 	 * @param  [type] $fromUsername [description]
@@ -225,16 +227,18 @@ class Robird
 	 * @param  [type] $content      [description]
 	 * @return [type]               [description]
 	 */
-	public function sendText($fromUsername,$toUsername,$msgType,$content)
+	public function sendText($content)
 	{
-        $this->setToUsername($fromUsername);
-        $this->setFromUsername($toUsername);
-        $this->setCreateTime();
-        $this->setMsgType($msgType);
-        $this->postStr['Content'] = $content;
-        $this->setFuncFlag();
+        $msg = array(
+            'ToUserName' => $this->getFromUsername(),
+            'FromUserName'=>$this->getToUsername(),
+            'MsgType'=>'text',
+            'CreateTime'=>time(),
+            'Content'=>$content,
+            'FuncFlag'=>0
+        );
 
-        $this->reply($this->postStr);
+        $this->reply($msg);
 	}
 
 	/**
