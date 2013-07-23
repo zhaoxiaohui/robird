@@ -29,10 +29,11 @@ class GetContent{
 		$submit = MUSIC_URL.http_build_query($apiparams).$apikeyword;
 		$send_snoopy->submit($submit);
 		return $send_snoopy->results;*/
-		$apihost = MUSIC_URL;
-	    $apiparams = array('appkey'=>APP_KEY, 'appsecert'=>APP_SECERT, 'reqtype'=>REQ_TYPE);
+		$apihost = "http://api2.sinaapp.com/";
+	    $apimethod = "search/music/?";
+	    $apiparams = array('appkey'=>"0020120430", 'appsecert'=>"fa6095e113cd28fd", 'reqtype'=>"music");
 	    $apikeyword = "&keyword=".urlencode($music);
-	    $apicallurl = $apihost.http_build_query($apiparams).$apikeyword;
+	    $apicallurl = $apihost.$apimethod.http_build_query($apiparams).$apikeyword;
 	    return file_get_contents($apicallurl);
 	}
 }
