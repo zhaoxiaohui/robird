@@ -58,15 +58,13 @@ if($rbird->checkSignature()){
 			    case SEARCH_MUSIC:
 			    	//$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
 			    	$getContent = new GetContent();
-			    	$co = $getContent->getContent($parseResult->con);
-			    	$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
-			    	/*$musicinfo = json_decode($co, true);
+			    	$musicinfo = json_decode($getContent->getContent($parseResult->con), true);
 			    	//$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
 			    	if($musicinfo['music']['hqmusicurl'] == ""){
 			    		$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
 			    	}else{
 			    		$rbird->sendMusic($musicinfo['music']);
-			    	}*/
+			    	}
 			    	break;
 		    }
 	    }catch(Exception $e){
