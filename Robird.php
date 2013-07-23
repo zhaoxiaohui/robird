@@ -155,6 +155,7 @@ class Robird
         $xml   .= "</{$root}>";
         return $xml;
     }
+    
     /**
      * 回复消息
      */
@@ -162,29 +163,111 @@ class Robird
         $xmldata = $this->xml_encode($msg);
         echo $xmldata;
     }
+    
+    /**
+	 * 获取接收消息内容正文
+	 */
+	public function getContent(){
+		if (isset($this->postStr['Content']))
+			return $this->postStr['Content'];
+		else 
+			return false;
+	}
+	/**
+	 * 获取接收消息图片
+	 */
+	public function getPic(){
+		if (isset($this->postStr['PicUrl']))
+			return $this->postStr['PicUrl'];
+		else 
+			return false;
+	}
+
+	/**
+	 * 获取接收消息链接
+	 */
+	public function getLink(){
+		if (isset($this->postStr['Url'])){
+			return array(
+				'url'=>$this->postStr['Url'],
+				'title'=>$this->postStr['Title'],
+				'description'=>$this->postStr['Description']
+			);
+		} else 
+			return false;
+	}
+
+	/**
+	 * 获取接收地理位置
+	 */
+	public function getGeo(){
+		if (isset($this->postStr['Location_X'])){
+			return array(
+				'x'=>$this->postStr['Location_X'],
+				'y'=>$this->postStr['Location_Y'],
+				'scale'=>$this->postStr['Scale'],
+				'label'=>$this->postStr['Label']
+			);
+		} else 
+			return false;
+	}
+
+	/**
+	 * 获取接收事件推送
+	 */
+	public function getEvent(){
+		if (isset($this->postStr['Event'])){
+			return array(
+				'event'=>$this->postStr['Event'],
+				'key'=>$this->postStr['EventKey'],
+			);
+		} else 
+			return false;
+	}
+
+	/**
+	 * 获取接收语言推送
+	 */
+	public function getVoice(){
+		if (isset($this->postStr['MediaId'])){
+			return array(
+				'mediaid'=>$this->postStr['MediaId'],
+				'format'=>$this->postStr['Format'],
+			);
+		} else 
+			return false;
+	}
     public function setFromUsername($fromUsername){
         $this->postStr['FromUserName'] = $fromUsername;
     }
     public function getFromUsername(){
-    	return $this->postStr['FromUserName'];
+    	if($this->postStr)
+    		return $this->postStr['FromUserName'];
+    	else return false;
     }
     public function setToUsername($toUsername){
         $this->postStr['ToUserName'] = $toUsername;    
     }
     public function getToUsername(){
-    	return $this->postStr['ToUserName'];
+    	if($this->postStr)
+    		return $this->postStr['ToUserName'];
+    	else return false;
     }
     public function setCreateTime(){
         $this->postStr['CreateTime'] = time();
     }
     public function getCreateTime(){
-    	return $this->postStr['CreateTime'];
+    	if($this->postStr)
+    		return $this->postStr['CreateTime'];
+    	else return false;
     }
     public function setMsgType($msgType){
         $this->postStr['MsgType'] = $msgType;
     }
     public function getMsgType(){
-    	return $this->postStr['MsgType'];
+    	if($this->postStr)
+    		return $this->postStr['MsgType'];
+    	else return false;
     }
     public function setFuncFlag($funcFlag = 0){
         $this->postStr['FuncFlag'] = $funcFlag;

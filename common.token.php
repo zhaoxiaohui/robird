@@ -8,6 +8,11 @@
  define("ZHHELP", "帮助");
  define("ENHELP", "help");
  
+ 
+ define('MSG_TEXT', 'text');
+ define('MSG_NEWS', 'news');
+ define('MSG_URL',  'url');
+ 
  /*=============================*\
   * 页面链接
  \*=============================*/
