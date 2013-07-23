@@ -24,9 +24,10 @@ class GetContent{
 	 */
 	public function getMusic($music){
 		$send_snoopy = new Snoopy; 
+		$http = self::MUSIC_URL;
 		$apiparams = array('appkey'=>self::APP_KEY, 'appsecert'=>self::APP_SECERT, 'reqtype'=>self::REQ_TYPE);
 		$apikeyword = "&keyword=".urlencode($music);
-		$submit = self::MUSIC_URL.http_build_query($apiparams).$apikeyword;
+		$submit =$http.http_build_query($apiparams).$apikeyword;
 		$send_snoopy->submit($submit);
 		return $send_snoopy->results;
 		/*$apihost = self::MUSIC_URL;
