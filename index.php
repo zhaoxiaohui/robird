@@ -59,12 +59,12 @@ if($rbird->checkSignature()){
 			    	//$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
 			    	$getContent = new GetContent();
 			    	$musicinfo = json_decode($getContent->getMusic($parseResult->con), true);
-			    	//$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
-			    	if($musicinfo['music']['hqmusicurl'] == ""){
+			    	$rbird->sendText($musicinfo);
+			    	/*if($musicinfo['music']['hqmusicurl'] == ""){
 			    		$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
 			    	}else{
 			    		$rbird->sendMusic($musicinfo['music']);
-			    	}
+			    	}*/
 			    	break;
 		    }
 	    }catch(Exception $e){
