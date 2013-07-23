@@ -5,7 +5,7 @@
  * 获取网络内容
  */
 class GetContent{
-	const MUSIC_URL = 'http://api2.sinaapp.com/search/music/?';
+	const MUSIC_URL = "http://api2.sinaapp.com/search/music/?";
 	const APP_KEY = '0020120430';
 	const APP_SECERT = 'fa6095e113cd28fd';
 	const REQ_TYPE = 'music';
