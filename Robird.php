@@ -237,18 +237,18 @@ class Robird
 		} else 
 			return false;
 	}
-    public function setFromUsername($fromUsername){
+    public function setFromUserName($fromUsername){
         $this->postStr['FromUserName'] = $fromUsername;
     }
-    public function getFromUsername(){
+    public function getFromUserName(){
     	if($this->postStr)
     		return $this->postStr['FromUserName'];
     	else return false;
     }
-    public function setToUsername($toUsername){
+    public function setToUserName($toUsername){
         $this->postStr['ToUserName'] = $toUsername;    
     }
-    public function getToUsername(){
+    public function getToUserName(){
     	if($this->postStr)
     		return $this->postStr['ToUserName'];
     	else return false;
@@ -292,8 +292,8 @@ class Robird
         $count = count($newsData);
 
         $msg = array(
-            'ToUserName' => $this->postStr['FromUserName'],
-            'FromUserName'=>$this->postStr['ToUserName'],
+            'ToUserName' => $this->getFromUserName(),
+            'FromUserName'=>$this->getToUserName(),
             'MsgType'=>'news',
             'CreateTime'=>time(),
             'ArticleCount'=>$count,
@@ -313,8 +313,8 @@ class Robird
 	public function sendText($content)
 	{
         $msg = array(
-            'ToUserName' => $this->getFromUsername(),
-            'FromUserName'=>$this->getToUsername(),
+            'ToUserName' => $this->getFromUserName(),
+            'FromUserName'=>$this->getToUserName(),
             'MsgType'=>'text',
             'CreateTime'=>time(),
             'Content'=>$content,
