@@ -284,7 +284,7 @@ class Robird
 			'MsgType'=>'music',
 			'Music'=>array(
 				'Title'=>$musicinfo['title'],
-				'Description'=>$musicinfo['description'],
+				'Description'=>$musicinfo['火小鸟奉上'],
 				'MusicUrl'=>$musicinfo['musicurl'],
 				'HQMusicUrl'=>$musicinfo['hqmusicurl']
 			),
