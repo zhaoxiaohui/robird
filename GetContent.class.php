@@ -29,9 +29,9 @@ class GetContent{
 		$submit = MUSIC_URL.http_build_query($apiparams).$apikeyword;
 		$send_snoopy->submit($submit);
 		return $send_snoopy->results;*/
-		$apihost = "http://api2.sinaapp.com/search/music/?";
+		$apihost = self::MUSIC_URL;
 	    //$apimethod = "search/music/?";
-	    $apiparams = array('appkey'=>"0020120430", 'appsecert'=>"fa6095e113cd28fd", 'reqtype'=>"music");
+	    $apiparams = array('appkey'=>self::APP_KEY, 'appsecert'=>self::APP_SECERT, 'reqtype'=>self::REQ_TYPE);
 	    $apikeyword = "&keyword=".urlencode($music);
 	    $apicallurl = $apihost.http_build_query($apiparams).$apikeyword;
 	    return file_get_contents($apicallurl);
