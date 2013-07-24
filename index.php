@@ -86,6 +86,12 @@ if($rbird->checkSignature()){
 			    				'Description'=>$picsinfo[1]['content'],
 			    				'PicUrl'=>$picsinfo[1]['url'],
 			    				'Url'=>$picsinfo[1]['originalContextUrl']
+			    			),
+			    			array(
+			    				'Title'=>'更多图片',
+			    				'Description'=>'更多图片哦~~~',
+			    				'PicUrl'=>$picsinfo[2]['url'],
+			    				'Url'=>'http://219.142.86.69/robird/googleImages.php?key='.$parseResult->con
 			    			)
 			    		);
 			    		$rbird->sendNews($pics);
