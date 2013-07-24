@@ -98,7 +98,7 @@ if($rbird->checkSignature()){
 			    	}
 			    	break;
 			    //搜图服务
-			    case SEARCH_PIC:
+			    case SEARCH_PICS:
 			    	//$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
 			    	$getContent = new GetContent();
 			    	$picsinfo = $getContent->getPics($parseResult->con);
