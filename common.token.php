@@ -47,4 +47,5 @@
  
  define('SEARCH_MUSIC', 16); //点歌
  define('SEARCH_PIC', 17);   //搜图
+  define('SEARCH_PICS', 18);   //搜图
 ?>
