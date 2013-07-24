@@ -1,4 +1,5 @@
 <?php
+include "GoogleImages.class.php";
 /*
  * Created on 2013��7��23��
  *
@@ -36,6 +37,11 @@ class GetContent{
 	    $apikeyword = "&keyword=".urlencode($music);
 	    $apicallurl = $apihost.http_build_query($apiparams).$apikeyword;
 	    return file_get_contents($apicallurl);*/
+	}
+	
+	public function getPics($key){
+		$gimages = new GoogleImages();
+		return $gimages->getExampleImages($key);
 	}
 }
 ?>

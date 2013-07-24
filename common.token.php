@@ -46,5 +46,5 @@
  define('SDM',15);   //standard message
  
  define('SEARCH_MUSIC', 16); //点歌
-
+ define('SEARCH_PIC', 17);   //搜图
 ?>
