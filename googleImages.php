@@ -18,6 +18,7 @@ if($key){
     $gimage->get_images($key, 4, 5);
 }
 else{
+	echo "hello world";
 	$send_snoopy = new Snoopy;
 	$send_snoopy->proxy_host = "127.0.0.1";
 	$send_snoopy->proxy_port = "8087";
