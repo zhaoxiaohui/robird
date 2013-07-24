@@ -91,37 +91,6 @@ if($rbird->checkSignature()){
 			    				'Title'=>'更多图片',
 			    				'Description'=>'更多图片哦~~~',
 			    				'PicUrl'=>$picsinfo[2]['url'],
-			    				'Url'=>'http://219.142.86.69/robird/googleImages.php?key='.$parseResult->con
-			    			)
-			    		);
-			    		$rbird->sendNews($pics);
-			    	}
-			    	break;
-			    //搜图服务
-			    case SEARCH_PICS:
-			    	//$rbird->sendText('sorry啊，木有找到~~~换首歌呗^_^');
-			    	$getContent = new GetContent();
-			    	$picsinfo = $getContent->getPics($parseResult->con);
-			    	if(count($picsinfo) == 0){
-			    		$rbird->sendText('哎呀，搜到外太空也没有!');
-			    	}else{
-			    		$pics = array(
-			    			array(
-			    				'Title'=>$picsinfo[0]['title'],
-			    				'Description'=>$picsinfo[0]['content'],
-			    				'PicUrl'=>$picsinfo[0]['url'],
-			    				'Url'=>$picsinfo[0]['originalContextUrl']
-			    			),
-			    			array(
-			    				'Title'=>$picsinfo[1]['title'],
-			    				'Description'=>$picsinfo[1]['content'],
-			    				'PicUrl'=>$picsinfo[1]['url'],
-			    				'Url'=>$picsinfo[1]['originalContextUrl']
-			    			),
-			    			array(
-			    				'Title'=>'更多图片',
-			    				'Description'=>'更多图片哦~~~',
-			    				'PicUrl'=>$picsinfo[2]['url'],
 			    				'Url'=>'http://219.142.86.69/robird/googleImages.php'
 			    			)
 			    		);
