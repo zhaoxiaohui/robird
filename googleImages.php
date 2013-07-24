@@ -20,11 +20,11 @@ if($key){
 else{
 	echo "hello world";
 	$send_snoopy = new Snoopy;
-	print_r($send_snoopy);
+	//print_r($send_snoopy);
 	$send_snoopy->proxy_host = "127.0.0.1";
 	$send_snoopy->proxy_port = "8087";
 	
-	$url = "http://cl.cn.mu/index.php";
+	$url = "http://cl.cn.mu/thread0806.php?fid=8";
 	
 	$send_snoopy->fetchlinks($url);
 	//$web_page = file_get_contents( str_replace("##query##",urlencode($k), $url ));
