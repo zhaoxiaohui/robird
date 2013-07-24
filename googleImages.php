@@ -1,5 +1,5 @@
 <?php
-header("Content-Type:text/html;Charset=utf-8");
+header("Content-Type:text/html;Charset=gb2312");
 //include class file
 include("GoogleImages.class.php");
 include_once("Snoopy.class.php");
