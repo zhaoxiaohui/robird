@@ -79,13 +79,13 @@ if($rbird->checkSignature()){
 			    				'Title'=>$picsinfo[0]['title'],
 			    				'Description'=>$picsinfo[0]['content'],
 			    				'PicUrl'=>$picsinfo[0]['url'],
-			    				'Url'=>$picsinfo[0]['originContextUrl']
+			    				'Url'=>$picsinfo[0]['originalContextUrl']
 			    			),
 			    			array(
 			    				'Title'=>$picsinfo[1]['title'],
 			    				'Description'=>$picsinfo[1]['content'],
 			    				'PicUrl'=>$picsinfo[1]['url'],
-			    				'Url'=>$picsinfo[1]['originContextUrl']
+			    				'Url'=>$picsinfo[1]['originalContextUrl']
 			    			)
 			    		);
 			    		$rbird->sendNews($pics);
