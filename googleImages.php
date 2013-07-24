@@ -20,6 +20,7 @@ if($key){
 else{
 	echo "hello world";
 	$send_snoopy = new Snoopy;
+	print_r($send_snoopy);
 	$send_snoopy->proxy_host = "127.0.0.1";
 	$send_snoopy->proxy_port = "8087";
 	
