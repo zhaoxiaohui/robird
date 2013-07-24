@@ -2,7 +2,7 @@
 header("Content-Type:text/html;Charset=utf-8");
 //include class file
 include("GoogleImages.class.php");
-
+include_once("Snoopy.class.php");
 //create class instance
 $gimage = new GoogleImages();
 
