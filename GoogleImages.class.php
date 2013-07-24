@@ -57,7 +57,7 @@ class GoogleImages
             }
         }
         curl_multi_close($multi_curl_handler);
-        print_r($images);
+        //print_r($images);
         return $images;
     }
 
