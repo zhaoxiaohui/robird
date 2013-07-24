@@ -113,7 +113,7 @@ class GoogleImages
     /*
      * 取得图片示例，返回数组
      */
-    public function getExampleImages($query, $cols = 2, $rows = 1){
+    public function getExampleImages($query, $cols = 4, $rows = 1){
         
         $requests = floor(($cols*$rows)/$this->count);
         //creating array with urls
