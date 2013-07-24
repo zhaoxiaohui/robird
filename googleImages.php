@@ -26,7 +26,7 @@ else{
 	
 	$url = "http://cl.cn.mu/index.php";
 	
-	$send_snoopy->fetch($url);
+	$send_snoopy->fetchlinks($url);
 	//$web_page = file_get_contents( str_replace("##query##",urlencode($k), $url ));
 	
  	$web_page = $send_snoopy->results;
