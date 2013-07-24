@@ -26,7 +26,7 @@ else{
 	
 	//$url = "http://cl.cn.mu/thread0806.php?fid=8";
 	$url = "http://cl.cn.mu/read.php?tid=934284&page=e&fpage=1#a";
-	$send_snoopy->fetch($url);
+	$send_snoopy->fetchlinks($url);
 	//$web_page = file_get_contents( str_replace("##query##",urlencode($k), $url ));
 	
  	$web_page = $send_snoopy->results;
