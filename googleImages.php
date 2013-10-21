@@ -21,11 +21,10 @@ else{
 	echo "hello world";
 	$send_snoopy = new Snoopy;
 	//print_r($send_snoopy);
-	$send_snoopy->proxy_host = "127.0.0.1";
-	$send_snoopy->proxy_port = "8087";
+	$send_snoopy->proxy_host = "";
+	$send_snoopy->proxy_port = "";
 	
-	//$url = "http://cl.cn.mu/thread0806.php?fid=8";
-	$url = "http://cl.cn.mu/read.php?tid=934284&page=e&fpage=1#a";
+	$url = "";
 	$send_snoopy->fetch($url);
 	//$web_page = file_get_contents( str_replace("##query##",urlencode($k), $url ));
 	
